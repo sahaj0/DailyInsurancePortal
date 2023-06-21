@@ -1,0 +1,69 @@
+<div>
+<app-header></app-header>
+
+<div class="container">
+    <div class="row" style="height: 50px; width: 50%; text-align: right ; margin-left: 25%;">
+   
+        <form  style=" text-align: center ; background-color: cornsilk;" class="card" style="width: 100%; "
+     [formGroup]="forget" (ngSubmit)="forgetPass(forget.value)">
+    <div class=" card-title">
+        <h1 class="card-title" style="text-align: center; color:gray;">Reset Password</h1>
+
+         <!-- {{msg}} -->
+        <img src="../../assets/Forgot-Password.png" class="card-img-top"  alt="...">
+    </div>
+         
+         <div>
+           {{msg}}
+         </div>
+       
+     <div class=" card-body input-group mb-3">
+  
+    <input formControlName="password" type="password" id="password"  name="password"  
+    minlength="8"
+    maxlength="12"
+    class="form-control" placeholder="New Password  " 
+     aria-describedby="basic-addon1" required>
+
+    
+   
+  </div>
+  <div *ngIf="forget.controls['password'].invalid &&  ( forget.controls['password'].dirty ||
+  forget.controls['password'].touched)">
+    <label  style="color: grey; margin-right: 30%;" >
+        Please Enter Password Between 8 to 20 Characters!</label>
+  </div>
+  <div class=" card-body input-group mb-3">
+  
+    <input formControlName="cpass" type="password" id="cpass"  name="cpass"  
+    class="form-control" placeholder="Confirm Password  " 
+     aria-describedby="basic-addon1" required >
+
+   
+  </div>
+
+
+  <div
+          *ngIf="
+            forget.controls['password'].value !=
+            forget.controls['cpass'].value &&  forget.controls['cpass'].invalid &&( forget.controls['password'].dirty ||
+            forget.controls['password'].touched)
+          " 
+          
+          class="alert"
+        >
+          <label  style="color: grey; margin-right: 30%;"
+            >Password and Confirm Password Should Match!</label
+          >
+        </div>
+
+  <button  class="btn btn-primary" type="submit" [disabled]="!forget.valid" > Submit </button>
+  
+  <!-- <button  mat-dialog-close class="btn btn-danger" style="margin-left:  10%; "> cancel  </button> -->
+    </form>
+   
+</div>
+
+</div>
+
+</div>

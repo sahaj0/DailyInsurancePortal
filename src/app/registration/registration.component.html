@@ -1,0 +1,154 @@
+
+<app-header></app-header>
+<div class="container">
+  
+    <div class="container1">
+      
+<div class="container col-md-6">
+    <h1 style="color:blueviolet">Create your Account </h1><br>
+
+     <!-- #add="ngForm" -->
+    <form  [formGroup]="Form" (ngSubmit)="userRegister(Form.value)">  
+  
+        <div class="row g-2">
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="fname"   name="fname"   required formControlName="fname">
+                <label for="floatingSelectGrid" >FirstName</label> 
+                
+              </div>
+              <div
+              *ngIf="
+                Form.controls['fname'].invalid && (
+                Form.controls['fname'].dirty ||
+                Form.controls['fname'].touched)
+              "
+              
+            >
+              <span class="form-floating"  style="color: grey;" >Please Enter Firstname!</span>
+            </div>
+
+              <!-- <div *ngIf="fname.invalid && (fname.touched || fname.dirty)">
+                <span class="form-floating" style="color: grey;" >This field is required  </span>
+              </div> -->
+            
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="lname"  name="lname"   required formControlName="lname" >
+               
+                <label for="floatingSelectGrid">LastName</label>
+              </div>
+              <div *ngIf="Form.controls['lname'].invalid &&  ( Form.controls['lname'].dirty ||
+              Form.controls['lname'].touched)">
+                <span class="form-floating"  style="color: grey;" > Please Enter Lastname! </span>
+              </div>
+            
+            </div>
+          </div>
+<br> 
+         
+    
+        <div class="col-md">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="username" 
+           name="username" 
+           aria-describedby="emailHelp" 
+           required 
+           minlength="6"
+          maxlength="16"
+           formControlName="username">
+
+          <label for="floatingSelectGrid">User Name</label>
+
+          <div *ngIf="Form.controls['username'].invalid &&  ( Form.controls['username'].dirty ||
+          Form.controls['username'].touched)">
+            <span class="form-floating"  style="color: grey;" >Please Enter Username Between 8 to 16 Characters!</span>
+          </div>
+        </div>
+      </div>
+    
+      
+      <br>
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email" name="email" formControlName="email"
+           aria-describedby="emailHelp" 
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          >
+          <label for="floatingSelectGrid">Email</label>
+
+        </div>
+         <div *ngIf="Form.controls['email'].invalid && ( Form.controls['email'].dirty ||
+          Form.controls['email'].touched)">
+            <span class="form-floating"  style="color: grey;" >Please Enter Valid Email!</span>
+          </div>
+        
+      </div>
+  
+     <br>
+     
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="password" class="form-control" id="password"  name="password" 
+            minlength="8"
+            maxlength="20"
+            formControlName="password"  required  >
+            <label for="floatingSelectGrid">Password</label>
+          </div>
+          
+          <!-- <div *ngIf="f['password'].touched && f['password'].invalid">
+            <span class="form-floating"  style="color: grey;" > This field is required </span>
+            <span *ngIf="f['c']"></span>
+          </div> -->
+          <div *ngIf="Form.controls['password'].invalid &&  ( Form.controls['password'].dirty ||
+          Form.controls['password'].touched)">
+            <span class="form-floating"  style="color: grey;" >Please Enter Password Between 8 to 20 Characters!</span>
+          </div>
+
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="password" class="form-control" id="cpass" name="cpass"
+             formControlName="cpass" 
+             minlength="8"
+          maxlength="20"
+          required>
+           
+            <label for="floatingSelectGrid">Confirm Password</label>
+
+          </div>
+          <div
+          *ngIf="
+            Form.controls['password'].value !=
+            Form.controls['cpass'].value &&  Form.controls['cpass'].invalid &&( Form.controls['password'].dirty ||
+            Form.controls['password'].touched)
+          " 
+          
+          class="alert"
+        >
+          <span  class="form-floating"  style="color: grey;"
+            >Password and Confirm Password Should Match!</span
+          >
+        </div>
+          
+        </div>
+      </div>
+      
+      <!-- <div class="mb-3">
+        <div id="emailHelp" class="form-text">Use 8 or more characters with a mix of letters, numbers & symbols.</div>  
+    </div> -->
+  
+ <br>
+     <div class="form-floating">
+       <a [routerLink]="['/login']" > Sign in instead</a>  
+      <button class="btn btn-primary" id="a1" type="submit"  [disabled]="!Form.valid ||Form.controls['password'].value != Form.controls['cpass'].value">Next</button>  
+      <!-- [disabled]="!add.valid" -->
+    </div>
+    </form>
+  
+  </div>
+</div>
+</div><br><br>
+<app-footer></app-footer>

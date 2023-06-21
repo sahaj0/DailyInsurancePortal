@@ -1,0 +1,82 @@
+
+<div class="container">
+    <div class="row" style="height: 50px; width: 80%; text-align: right ;margin-left: 10%; ">
+   
+        <form [formGroup]="form" (ngSubmit)="claim(form.value)"
+       
+        
+        style=" text-align: center ; background-color: cornsilk;" 
+        class="card" style="width: 100%; "
+           >
+           <br>
+    <div class=" card-title">
+        <h1 class="card-title" style="text-align: center; color:gray;">Raise a Claim Request</h1>
+                       <div style="color: red; text-align: center;">{{msg}}</div>
+        
+    </div>  
+    <!-- <label style="color: red; text-align: center;"> {{msg |json}} </label> -->
+     <div class=" card-body input-group mb-3">
+      
+      <select class="form-control"
+      name="wa" id="#"   formControlName="PolicySelect" (change)="change($event)"  required >
+         <option  selected  hidden  >Policy name </option> 
+       
+        <option  *ngFor="let w of PolicyName" >{{w}}</option>
+        <!-- <option value="three">Purchase Insurance </option>
+        <option value="three">Request Claim </option>   -->
+       
+        </select>
+       
+  </div>
+  <div class=" d-flex align-items-center"
+  *ngIf="form.controls['PolicySelect'].invalid && form.controls['PolicySelect'].touched ">
+   <span style="text-align: center; color: gray;"> Please select one option to proceed!</span>
+ </div>
+ 
+ <div class=" card-body input-group mb-3">
+    <input type="text"  class="form-control"
+      placeholder="Date of policy Purchase" onfocus="(this.type='date')" id="date" name="date" 
+      formControlName="date" required/>
+      </div>
+
+      <div>
+        <label *ngIf="form.controls['date'].invalid && (
+            form.controls['date'].dirty ||
+            form.controls['date'].touched)" class="form-label" for="form3Example3"
+            class="form-floating"  style="color: grey; margin-right: 80%;" 
+            >This field is required</label>
+      </div>
+
+  <div class=" card-body input-group mb-3">
+    <input type="number"  class="form-control"
+      placeholder="Claim Amount" id="amount" name="amount" 
+      formControlName="amount" required/>
+
+   
+  </div>
+  <div>
+    <label *ngIf="form.controls['amount'].invalid && (
+        form.controls['amount'].dirty ||
+        form.controls['amount'].touched)" class="form-label" for="form3Example3"
+        class="form-floating"  style="color: grey; margin-right: 80%;" 
+        >This field is required</label>
+  </div>
+  <!-- <div class=" d-flex align-items-center"
+  *ngIf="form.controls['walletSelect'].invalid && form.controls['walletSelect'].touched ">
+   <span style="text-align: center; color: gray;"> Please select one option to proceed!</span>
+ </div>  -->
+<div style="display: flex; justify-content: center;">
+    <button style=" margin-right: 20px; width: 50%; " class="btn btn-primary" type="submit" data-inline="true" [disabled]="!form.valid"  > Next </button>
+    <button style=" width: 50%;" mat-dialog-close class="btn btn-danger" data-inline="true" > Cancel  </button>
+    
+
+</div>
+<br>
+  <!-- <button  mat-dialog-close class="btn btn-danger" style="margin-left:  10%; "> cancel  </button> -->
+  
+ 
+
+</form>
+  
+</div>
+</div>

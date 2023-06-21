@@ -1,0 +1,113 @@
+
+<!-- <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <label class="b" *ngIf="userSer.isLoggedIn()" (click)="show()" > Welcome 
+        {{user1}}  </label>
+      <a class="nav-link" [routerLink]="['']">Home</a>
+      <a class="nav-link" [routerLink]="['/admin']">Admin</a>
+      <a class="nav-link"  *ngIf="!userSer.isLoggedIn()" [routerLink]="['/login']">User Login</a>
+       <a class="nav-link"   [attr.disabled]="!userSer.isLoggedIn() ? null : null" [routerLink]="['/login']">Check Wallet</a> 
+      <a class="nav-link" #add (click)="clickMe(add)" >Check Wallet</a>
+       <a class="nav-link"   [ngClass]="{'disabled':!userSer.isLoggedIn() }" [routerLink]="['/login']">Check Wallet</a> 
+      <a class="nav-link"  *ngIf="userSer.isLoggedIn()" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</nav> -->
+<app-header></app-header>
+<section class="vh-100">
+ 
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-12 col-lg-6 col-xl-5">
+        
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+     
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row" style="height: 50px; width: 50%; text-align: right ; margin-left: 25%;">
+   
+        <form [formGroup]="form" (ngSubmit)="wallet()"
+        *ngIf="userSer.isLoggedIn()"
+        
+        style=" text-align: center ; background-color: cornsilk;" 
+        class="card" style="width: 100%; "
+           >
+    <div class=" card-title">
+        <h1 class="card-title" style="text-align: center; color:gray;">Access Here</h1>
+
+         <!-- {{msg}} --> 
+    </div>  
+     <div class=" card-body input-group mb-3">
+  
+      <select class="form-control"
+      name="wa" id="#"   formControlName="walletSelect" (change)="change($event)"  required >
+        <option  selected hidden >Add Wallet Balance</option>
+       
+        <option  *ngFor="let w of details">{{w}}</option>
+        <!-- <option value="three">Purchase Insurance </option>
+        <option value="three">Request Claim </option>   -->
+       
+        </select>
+       
+  </div>
+  <div class=" d-flex align-items-center"
+  *ngIf="form.controls['walletSelect'].invalid && form.controls['walletSelect'].touched ">
+   <span style="text-align: center; color: gray;"> Please select one option to proceed!</span>
+ </div> 
+
+  <button  class="btn btn-primary" type="submit"  [disabled]="!form.valid" > Next </button>
+  <br>
+  <!-- <button  mat-dialog-close class="btn btn-danger" style="margin-left:  10%; "> cancel  </button> -->
+  
+  <!-- <div *ngFor="let d of next">  
+<div *ngIf="next=='Add Wallet Balance' ">
+  hello{{next |json}}
+</div>
+
+<div *ngIf="next=='Purchase Insurance' ">
+  hello{{next |json}}
+</div>
+
+<div>
+
+</div>
+</div> -->
+</form>
+  
+</div>
+</div>
+
+  
+  <!-- <div
+    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+     Copyright -->
+    <!-- <div class="text-white mb-3 mb-md-0">
+      Copyright © 2020. All rights reserved.
+    </div> -->
+    <!-- Copyright -->
+
+    <!-- Right -->
+    <!-- <div>
+      <a href="#!" class="text-white me-4">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#!" class="text-white me-4">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#!" class="text-white me-4">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="#!" class="text-white">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div> -->
+    <!-- Right 
+  </div> -->
+  
+</section>
+<app-footer></app-footer>

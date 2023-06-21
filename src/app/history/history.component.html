@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="w">
+        <span  mat-dialog-close  class="cross"></span>
+    </div>
+    
+<h1 class="text-secondary text-center"> 
+  Transaction History
+
+ 
+
+            
+</h1>
+<!-- <h2 class="text-center">  {{msg}} </h2> -->
+<!-- <ul >
+    <li>{{data | json}}</li>
+</ul> -->
+
+
+        <!-- Bootstrap table and table-stripped classes -->
+       
+       
+       <!-- <marquee style="color: red; ">{{msg}}</marquee> -->
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th scope="col">Transcation Type</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                   
+                </tr>
+            </thead>
+            
+            <tbody>
+                
+                <tr *ngFor="let d of list" >
+
+                    <td>{{d.policy_type}}</td>
+                    <td>{{d.amount}}</td>
+                    <td>{{d.date}}</td>
+                </tr>
+          
+                
+            </tbody>
+        </table>
+</div>
+
+

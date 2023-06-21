@@ -1,0 +1,48 @@
+
+
+<app-header></app-header>
+<div class="container">
+<h1 class="text-secondary text-center"> 
+  Wallet
+</h1>
+<h2 class="text-center"> </h2>
+<!-- <ul >
+    <li>{{data | json}}</li>
+</ul> -->
+
+
+        <!-- Bootstrap table and table-stripped classes -->
+       
+       
+       <marquee style="color: red; ">{{msg}}</marquee>
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                  
+                    <th scope="col">Username</th>
+                    <th scope="col">Transcation Type</th>
+                    <th scope="col">Amount</th>
+                   
+                </tr>
+            </thead>
+            
+            <tbody>
+                
+                <tr >
+                    <!-- <td>{{d.id}}</td> -->
+
+                    <!-- <th scope="row">{{userdata.id}</th> -->
+
+                    <td>{{userdata.user_name}}</td>
+                    <td>{{userdata.type}}</td>
+                    <td>{{userdata.amount}}</td>
+                </tr>
+          
+                
+            </tbody>
+        </table>
+</div>
+<div style="margin-top: 25%;">
+    <app-footer></app-footer>
+</div>
+

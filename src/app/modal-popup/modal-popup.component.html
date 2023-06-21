@@ -1,0 +1,31 @@
+
+<div class="container">
+    <div class="row">
+    <form  class="form-group " [formGroup]="send" (ngSubmit)="sendotp(send.value)">
+       <div  class="form-group" style="color: gray;">
+
+        {{msg}}
+        {{timeLeft}}
+
+       </div>
+     <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    <input formControlName="email" type="email" id="email"  name="email"
+     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      class="form-control" placeholder="Enter Your Email" required
+       aria-describedby="basic-addon1">
+  </div>
+  <div *ngIf="send.controls['email'].invalid && ( send.controls['email'].dirty &&
+  send.controls['email'].touched)">
+    <span class="form-floating"  style="color: red;" >Please Enter Valid Email!</span>
+  </div>
+
+  <button  class="btn btn-primary" type="submit" [disabled]="!send.valid" > Send OTP </button>
+  
+  <button  mat-dialog-close class="btn btn-danger" style="margin-left:  10%; "> cancel  </button>
+    </form>
+  
+</div>
+</div>

@@ -1,0 +1,29 @@
+
+
+<div class="container">
+    <div class="row" style="height: 50px; width: 50%; text-align: right ; margin-left: 25%; margin-top: 10%;">
+    <form  style=" text-align: center ;" class="form-group"
+     [formGroup]="formotp" (ngSubmit)="verifyotp(formotp.value)">
+        <div style="color:grey;">
+          {{msg}}
+        </div>
+     <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    <input formControlName="otp" type="number" id="otp"  name="otp" pattern="[0-9]{5,}$" 
+    class="form-control" placeholder="Enter Your OTP  " 
+     aria-describedby="basic-addon1" required>
+  </div>
+  <div *ngIf="formotp.controls['otp'].invalid && ( formotp.controls['otp'].dirty ||
+  formotp.controls['otp'].touched)">
+    <span class="form-floating"  style="color: red;" >Please Enter Valid OTP!</span>
+  </div>
+
+  <button  class="btn btn-primary" type="submit" [disabled]="!formotp.valid" > Send OTP </button>
+  
+  <!-- <button  mat-dialog-close class="btn btn-danger" style="margin-left:  10%; "> cancel  </button> -->
+    </form>
+  
+</div>
+</div>

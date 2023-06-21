@@ -1,0 +1,113 @@
+
+<div>
+
+  <app-header></app-header>
+  <section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+  
+  
+          <form [formGroup]="add" (ngSubmit)="login(add.value)">
+  
+  
+          
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <h2 class="col-md-12" style="text-align: center;">Sign in</h2>
+             
+              <!-- <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+  
+              <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+  
+              <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-linkedin-in"></i>
+              </button> -->
+            </div>
+            <div class="alert-danger" style="color: red;">{{msg}} </div> 
+            <div class="danger">{{user1}} </div> 
+            <div class="divider d-flex align-items-center my-4">
+              <p class="text-center fw-bold mx-3 mb-0"></p>
+            </div>
+  
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="text"  class="form-control form-control-lg"
+                placeholder="Enter a Username" id="username" name="username" 
+                formControlName="username" required/>
+  
+              <label *ngIf="add.controls['username'].invalid && (
+                add.controls['username'].dirty ||
+                add.controls['username'].touched)" class="form-label" for="form3Example3"class="form-floating"  style="color: grey;" >This field is required</label>
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <input type="password" id="form3Example4" class="form-control form-control-lg"
+                placeholder="Enter password" formControlName="password" required/>
+  
+                <label *ngIf="add.controls['password'].invalid && (
+                  add.controls['password'].dirty ||
+                  add.controls['password'].touched)" class="form-label" for="form3Example3"class="form-floating"  style="color: grey;" >This field is required</label>
+            </div>
+  
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- Checkbox -->
+              <div class="form-check ">
+                <!-- <a class="form-check-input me-2" type="button" > </a> -->
+                <a class="form-check-label" (click)="forget()" for="form2Example3">
+                  Forget Password ?
+                </a>
+              </div>
+              <label class="text-body"  [routerLink]="['/register']">New User ? Register Here!</label>
+            </div>
+            <button class="btn btn-primary" id="a1" type="submit"  [disabled]="!add.valid">Next</button>  
+            <!-- <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="button" class="btn btn-primary btn-lg"
+                 [disabled]="!add.valid"> Login </button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                  class="link-danger">Register</a></p>
+            </div> -->
+  
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+      <!-- Copyright -->
+      <div class="text-white mb-3 mb-md-0">
+        Copyright © 2021. All rights reserved.
+      </div>
+      <!-- Copyright -->
+  
+      <!-- Right -->
+      <div>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="#!" class="text-white">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </div>
+  
+  
+    
+  </section>
+
+</div>

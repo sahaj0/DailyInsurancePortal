@@ -1,0 +1,25 @@
+.navbar-nav a{
+    float: left;
+display: block;
+color: black;
+text-align: center;
+padding: 12px 12px;
+}
+.navbar-nav a.left {
+    float: right;
+    }
+    .navbar a:hover{
+    background-color: #eee;
+    color: black;
+    }
+   
+    .b {
+        position: absolute;
+        right: 50px;
+        text-align: center;
+        width: 100px;
+      }
+      .b:hover{
+        background-color: #eee;
+        border-radius: 10px;
+      }

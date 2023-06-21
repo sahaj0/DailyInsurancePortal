@@ -1,0 +1,17 @@
+
+<nav class="navbar navbar-expand-sm bg-light justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <label class="b" *ngIf="userSer.isLoggedIn()" (click)="show()" > Welcome 
+          {{user1}}  </label>
+        <a class="nav-link" [routerLink]="['']">Home</a>
+        <a class="nav-link" [routerLink]="['/admin']">Admin</a>
+        <a class="nav-link"  *ngIf="!userSer.isLoggedIn()" [routerLink]="['/login']">User Login</a>
+        <!-- <a class="nav-link"   [attr.disabled]="!userSer.isLoggedIn() ? null : null" [routerLink]="['/login']">Check Wallet</a> -->
+        <a class="nav-link" #add (click)="clickMe(add)" >Check Wallet</a>
+        <a class="nav-link" #add (click)="History(add)" >Transaction History</a>
+        <!-- <a class="nav-link"   [ngClass]="{'disabled':!userSer.isLoggedIn() }" [routerLink]="['/login']">Check Wallet</a> -->
+        <a class="nav-link"  *ngIf="userSer.isLoggedIn()" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>

@@ -1,0 +1,20 @@
+
+.w{
+    position: relative;
+    display: inline-block;
+}
+.cross::before{
+
+        content: "\01F5D9";
+        
+        font-size: 50px;
+}
+.cross{
+    position: absolute;
+    top: 0;
+    left: 0;
+   right: 0;
+   float:rigth;
+   margin-left: 100%;
+    cursor: pointer;
+}
